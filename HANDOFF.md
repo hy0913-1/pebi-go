@@ -3,7 +3,7 @@
 명조 페비츄비 **비공식 무료 팬게임**. 현실(카메라) 위에 야생 피비가 나타나고, 딸기·쓰다듬기·말 걸기로 호감도를 채우면 내 피비가 됨.
 아이폰 Safari 기준 PWA, GitHub Pages 배포 (페비츄비 키우기와 별도 레포).
 
-## 현재 버전: `pebigo-v1` (1단계: AR 조우 화면)
+## 현재 버전: `pebigo-v2` (1단계: AR 조우 화면)
 
 ### 된 것
 - 시작 화면: 비공식 표기, ⚠️ 주변 조심, 카메라/저장 안내 → "확인했어, 시작!" 탭에서 자이로 권한 + 카메라 권한 동시 요청
@@ -33,18 +33,15 @@
 | catchR | 0.30 | 받아먹기 판정 반경 |
 던지기 세기 매핑: `doThrow()` — `power=(위로 민 속도-500)/2000`, 목표 거리 `0.6+power*4.0`m.
 
-## 파일 구조
+## 파일 구조 (전부 레포 루트에 평평하게, 폴더 없음 — 폰 업로드용)
 ```
-index.html            게임 전체 (CSS+JS)
-sw.js                 캐시 (VERSION 올리기!)
-manifest.webmanifest
-icons/                페비츄비 키우기 아이콘 재사용 (나중에 피비 GO 전용으로 교체)
-assets/pebi.glb       피비 3D 모델 (원본 glbdata base64 → 바이너리)
-assets/face.json      표정 PNG 조각 {키:{x,y,d}} (1024x576 얼굴 캔버스 기준)
-assets/tex.json       얼굴 지운 텍스처 변형 e/m/em/n (em 사용)
-assets/voice.json     목소리 angry/cry/happy/sulk/talk
-assets/hairpatch.json 모자 벗은 머리 패치 (아직 안 씀, 캐시에도 안 넣음)
-.nojekyll
+index.html  sw.js(VERSION 올리기!)  manifest.webmanifest  HANDOFF.md
+pebi.glb        피비 3D 모델
+face.json       표정 PNG 조각 {키:{x,y,d}} (1024x576 얼굴 캔버스 기준)
+tex.json        얼굴 지운 텍스처 변형 e/m/em/n (em 사용)
+voice.json      목소리 angry/cry/happy/sulk/talk
+hairpatch.json  모자 벗은 머리 패치 (아직 안 씀)
+icon-180/192/512.png  페비츄비 키우기 아이콘 재사용
 ```
 
 ## 코드 지도 (index.html)
@@ -60,7 +57,7 @@ assets/hairpatch.json 모자 벗은 머리 패치 (아직 안 씀, 캐시에도 
 - 권한: `onStart` — iOS는 버튼 탭 안에서 `DeviceOrientationEvent.requestPermission()`과 `getUserMedia`를 바로 호출해야 함
 
 ## 배포
-1. 새 레포 (예: `pebi-go`) → zip 안 파일 전부 루트에 올리기
+1. 새 레포 (예: `pebi-go`) → zip 풀어서 파일 전부 루트에 올리기 (zip 자체는 올리지 않기)
 2. Settings → Pages → Branch `main` / `(root)`
 3. 아이폰 Safari로 `https://<아이디>.github.io/pebi-go/` → 공유 → 홈 화면에 추가
 - 카메라·자이로는 https에서만 됨 (GitHub Pages OK, 파일 직접 열기 X)
@@ -75,3 +72,4 @@ assets/hairpatch.json 모자 벗은 머리 패치 (아직 안 씀, 캐시에도 
 
 ## 변경 기록
 - v1 (2026-09-28): 1단계 조우 화면 첫 버전
+- v2: 폴더 없이 루트에 평평하게 (폰 GitHub 업로드는 폴더가 안 올라가서 assets/ 경로 404 났음)

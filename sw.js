@@ -1,11 +1,11 @@
 /* 피비 GO 서비스워커 — 수정할 때마다 VERSION 올리기 */
-const VERSION='pebigo-v1';
+const VERSION='pebigo-v2';
 const CORE_CACHE=VERSION+'-core';
 const RUNTIME_CACHE=VERSION+'-runtime';
 const CORE=[
   './','./index.html','./manifest.webmanifest',
-  './icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png',
-  './assets/pebi.glb','./assets/face.json','./assets/tex.json','./assets/voice.json'
+  './icon-180.png','./icon-192.png','./icon-512.png',
+  './pebi.glb','./face.json','./tex.json','./voice.json'
 ];
 const EXTERNAL=[
   'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js',

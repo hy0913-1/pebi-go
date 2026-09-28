@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#2a1b3d">
 <title>피비 GO</title>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="apple-touch-icon" href="icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
@@ -113,7 +113,7 @@ button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 <div id="fallbg"></div>
 <canvas id="gl"></canvas>
 
-<div id="arrow"><b></b><i><img src="icons/icon-180.png" alt="피비 방향"></i></div>
+<div id="arrow"><b></b><i><img src="icon-180.png" alt="피비 방향"></i></div>
 <div id="bubble"></div>
 <div id="toast" class="stk"></div>
 
@@ -731,7 +731,7 @@ async function getJSON(u){const r=await fetch(u);if(!r.ok)throw new Error(u+' '+
 async function loadAssets(){
   const msg=$('loadmsg');
   try{
-    const [glb,face,tex,voice]=await Promise.all([fetch('assets/pebi.glb').then(r=>{if(!r.ok)throw new Error('pebi.glb '+r.status);return r.arrayBuffer()}),getJSON('assets/face.json'),getJSON('assets/tex.json'),getJSON('assets/voice.json').catch(()=>null)]);
+    const [glb,face,tex,voice]=await Promise.all([fetch('pebi.glb').then(r=>{if(!r.ok)throw new Error('pebi.glb '+r.status);return r.arrayBuffer()}),getJSON('face.json'),getJSON('tex.json'),getJSON('voice.json').catch(()=>null)]);
     SND_RAW=voice;loadFaceImgs(face);
     await new Promise((res,rej)=>{const _cib=window.createImageBitmap;window.createImageBitmap=undefined;
       try{new THREE.GLTFLoader().parse(glb,'',g=>{try{
