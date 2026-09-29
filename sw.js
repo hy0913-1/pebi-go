@@ -1,5 +1,6 @@
-/* 피비 GO 서비스워커 — 수정할 때마다 VERSION 올리기 */
-const VERSION='pebigo-v2';
+/* 피비 GO 서비스워커 — 수정할 때마다 VERSION 올리기
+   pebi_*.usdz(AR 사진용)는 미리 받지 않고, 처음 열 때 받아서 캐시 */
+const VERSION='pebigo-v3';
 const CORE_CACHE=VERSION+'-core';
 const RUNTIME_CACHE=VERSION+'-runtime';
 const CORE=[
